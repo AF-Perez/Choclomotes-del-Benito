@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Los Motes Del Benito</title>
+</head>
+<center>
+<body>
+	<table border="5" bgcolor="B2B2B2">
+		<td>
+			<center><h1>Los Motes Del Benito - Tienda Online</h1></center>
+			<center><h4>Cualquier plato a $0.50: Choclomote, con chicharron</h4></center>
+	<table border="1">
+		<tr>
+			<td>
+				<img src="ejercicio/mote.jpg" width="250" height="150">
+			</td>
+			<td>
+				<form action="/my-handling-form-page" method="post">
+    		<div>
+        		<label for="text">Nombre:</label>
+        		<input type="text" id="name"/>
+    		</div>
+    		<div>
+        		<label for="text"># de Choclomotes:</label>
+        		<input type="text" id="Choclomotes" onchange="calcular()" />
+    		</div>
+    			<div>
+        		<label for="text"># de Chicharron:</label>
+        		<input type="text" id="Chicharron" onchange="calcular()"/>
+    		</div>
+     		<div>
+        		<label for="text">En cuantos minutos viene por su pedido:</label>
+        		<input type="text" id="pedido"/>
+    		</div>
+     		<div>
+        		<label for="text">Subtotal:</label>
+        		<input type="text" id="Subtotal"/>
+    		</div>
+     		<div>
+        		<label for="text">IVA:</label>
+        		<input type="text" id="IVA"/>
+    		</div>
+      		<div>
+        		<label for="text">Total:</label>
+        		<input type="text" id="Total"/>
+    		</div>
+   			<div>
+   			</div>
+				</form>
+	</table>
+
+	    </td>
+	</table>	
+<script type="text/javascript">
+function calcular() {
+	
+	var n_Choclomotes = document.getElementById("Choclomotes").value;
+	var n_Chicharrones = document.getElementById("Chicharron").value;
+	var t_Choclomotes = 0.0;
+	var t_Chicharrones = 0.0;
+	const precio = 0.50;
+	var aux_Total = 0.0;
+	const IVA = 0.12;
+
+	t_Choclomotes = n_Choclomotes * precio;
+	t_Chicharrones = n_Chicharrones * precio;
+	aux_Total = t_Choclomotes + t_Chicharrones;
+
+	document.getElementById("Subtotal").value = aux_Total;
+
+	document.getElementById("IVA").value = (document.getElementById("Subtotal").value * IVA);
+
+	document.getElementById("Total").value = parseFloat(document.getElementById("Subtotal").value)  + parseFloat(document.getElementById("IVA").value) ;
+
+}
+
+</script>
+</center>
+</body>
+</html>
